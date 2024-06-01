@@ -33,7 +33,6 @@ This program is distributed in the hope that it will be useful, but WITHOUT ANY 
 - **Properties:**
   - `pdb_variant`, `predicted_structure_variant`, `uniprot_variant`, `alt_sequence_variant`: Different types of variants.
   - `thermodynamic_data`: Thermodynamic data related to the protein variant.
-  - `dataset`: Metadata about the dataset containing the protein variant information.
 - **Required Fields:** Depends on the variant type.
 
 ## 3. Amino Acid Variant

@@ -47,16 +47,7 @@
         "$ref": "thermodynamic_data.json"
       }
     },
-    "dataset": {
-      "type": "object",
-      "properties": {
-        "name": { "type": "string" },
-        "version": { "type": "string" },
-        "creation_date": { "type": "string" },
-        "group_id": { "type": "string" }
-      },
-      "required": ["name", "version", "creation_date"]
-    }
+    "object_type": { "const": "protein_variant"}
   },
   "required": ["thermodynamic_data"],
   "anyOf": [

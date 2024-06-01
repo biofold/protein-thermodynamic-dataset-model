@@ -52,7 +52,6 @@
           "description": "Concentration of the protein used in the experiment in molar units"
         }
       },
-      "required": 
       "anyOf": [
         { "required": ["temperature"] },
         { "required": ["pH"] }
@@ -77,6 +76,7 @@
       },
       "required": ["publication", "DOI"]
     },
+    "object_type": { "const": "thermodynamic_experiment"},
     "metadata": {
       "type": "object",
       "properties": {

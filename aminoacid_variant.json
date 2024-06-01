@@ -4,6 +4,7 @@
   "title": "Amino Acid Variant Schema",
   "type": "object",
   "properties": {
+    "object_type": { "const": "aminoacid_variant"},
     "uniprot_variant": {
       "type": "array",
       "items": {
