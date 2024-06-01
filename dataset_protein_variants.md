@@ -14,9 +14,9 @@ This document provides an overview of five JSON schemas for different types of d
   - `grouping_procedure`: Procedure used for grouping.
   - `additional_info`: Additional information about the dataset.
   - `author`: Author of the dataset.
-  - `groups`: Array containing groups of protein variants.
+  - `sets`: Array containing groups of protein variants.
   - `reference`: Information about the publication reference.
-- **Required Fields:** `name`, `groups`, `reference`
+- **Required Fields:** `name`, `sets`, `reference`
 
 ## 2. Protein Variant
 
