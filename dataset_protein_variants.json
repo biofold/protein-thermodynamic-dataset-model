@@ -9,6 +9,7 @@
       "description": { "type": "string" },
       "version": { "type": "string" },
       "creation_date": { "type": "string" },
+      "modification_date": { "type": "string" },
       "grouping_procedure": { "type": "string" },
       "additional_info": { "type": "string" },
       "author": { "type": "string" },
