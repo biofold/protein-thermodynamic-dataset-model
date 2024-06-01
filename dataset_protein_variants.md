@@ -4,7 +4,7 @@
 This repository includes of JSON schemas for a data models representing a dataset of protein thermodynamic  data.
 
 ## LICENSE
-Copyright (C) 2024 Emidio Capriotti
+Copyright (C) 2024 Emidio Capriotti and Maria Paola Turina
 
 This program and all program in this package are free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; either version 2 of the License, or (at your option) any later version.
 
@@ -65,5 +65,4 @@ This program is distributed in the hope that it will be useful, but WITHOUT ANY 
 - **Required Fields:** `method`, `conditions`, `reference`
 
 Each schema provides a structured format for organizing and validating specific types of data related to protein variants, experimental data, and thermodynamic data.
-
 
