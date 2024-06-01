@@ -66,4 +66,3 @@ This program is distributed in the hope that it will be useful, but WITHOUT ANY 
 
 Each schema provides a structured format for organizing and validating specific types of data related to protein variants, experimental data, and thermodynamic data.
 
-
