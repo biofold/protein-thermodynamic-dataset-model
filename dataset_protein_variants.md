@@ -1,6 +1,14 @@
 # JSON Schemas Documentation
 
-This document provides an overview of five JSON schemas for different types of data models.
+## INTRODUCTION
+This repository includes of JSON schemas for a data models representing a dataset of protein thermodynamic  data.
+
+## LICENSE
+Copyright (C) 2024 Emidio Capriotti
+
+This program and all program in this package are free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; either version 2 of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
 
 ## 1. Protein Variants Dataset
 
@@ -57,4 +65,5 @@ This document provides an overview of five JSON schemas for different types of d
 - **Required Fields:** `method`, `conditions`, `reference`
 
 Each schema provides a structured format for organizing and validating specific types of data related to protein variants, experimental data, and thermodynamic data.
+
 
