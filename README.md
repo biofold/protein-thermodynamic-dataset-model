@@ -20,12 +20,11 @@ This program is distributed in the hope that it will be useful, but WITHOUT ANY 
   - `version`: Version of the dataset.
   - `creation_date`: Date when the dataset was created.
   - `modification_date`: Latest date when the dataset was modified.
-  - `grouping_procedure`: Procedure used for grouping.
   - `additional_info`: Additional information about the dataset.
   - `author`: Author of the dataset.
-  - `sets`: Array containing groups of protein variants.
+  - `records`: Array of protein variants.
   - `reference`: Information about the publication reference.
-- **Required Fields:** `name`, `sets`, `reference`
+- **Required Fields:** `name`, `records`, `reference`
 
 ## 2. Protein Variant
 
