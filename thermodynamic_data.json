@@ -1,0 +1,80 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://example.com/product.schema.json",
+  "title": "Thermodynamic Data Schema",
+  "type": "object",
+  "properties": {
+    "Tm": {
+      "type": "number",
+      "description": "Melting temperature of the variant in degrees Celsius"
+    },
+    "unfolding_percentage": {
+      "type": "number",
+      "description": "Percentage of protein unfolded"
+    },
+    "dG_H2O": {
+      "type": "number",
+      "description": "Change in unfolding free energy in water"
+    },
+    "fitting_model": {
+      "type": "string",
+      "description": "Model used for fitting the data to determine dG (e.g., two-state model, three-state model)"
+    },
+    "experiment": {
+      "$ref": "thermodynamic_experiment.json",
+      "description": "Experimental data"
+    },
+    "m": {
+      "type": "number",
+      "description": "Slope of the denaturation curve"
+    },
+    "Cm": {
+      "type": "number",
+      "description": "Midpoint of denaturation"
+    },
+    "dTm": {
+      "type": "number",
+      "description": "Change in melting temperature"
+    },
+    "T": {
+      "type": "number",
+      "description": "Temperature"
+    },
+    "dG": {
+      "type": "number",
+      "description": "Change in free energy"
+    },
+    "ddG": {
+      "type": "number",
+      "description": "Change in change in free energy"
+    },
+    "dH": {
+      "type": "number",
+      "description": "Change in enthalpy"
+    },
+    "dHvH": {
+      "type": "number",
+      "description": "Change in van't Hoff enthalpy"
+    },
+    "dCp": {
+      "type": "number",
+      "description": "Change in heat capacity"
+    },
+    "other_measures": {
+      "type": "object",
+      "additionalProperties": {
+        "type": ["number", "string"],
+        "description": "Other user-defined thermodynamic measures"
+      },
+      "description": "Additional user-defined thermodynamic measures"
+    }
+  },
+  "required": ["experiment"],
+  "anyOf": [
+    { "required": ["Tm"] },
+    { "required": ["dG_H2O"] },
+    { "required": ["ddG_H2O"] },
+    { "required": ["dG"] },
+    { "required": ["ddG"] }
+  ]
+}

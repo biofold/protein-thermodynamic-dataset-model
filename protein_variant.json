@@ -1,0 +1,69 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://example.com/product.schema.json",
+  "title": "Protein Variant Schema",
+  "type": "object",
+  "properties": {
+    "pdb": {
+      "type": "object",
+      "properties": {
+        "database_id": { "type": "string" },
+        "chains": { "type": "array", "items": { "type": "string" } },
+        "experimental_type": { "type": "string", "enum": ["X-ray", "NMR"], "description": "Type of experiment used to determine the structure" },
+        "variant": { "$ref": "aminoacid_variant.json#properties/pdb_variant" }
+      },
+      "required": ["database_id", "experimental_type"]
+    },
+    "predicted_structure": {
+      "type": "object",
+      "properties": {
+        "database_name": { "type": "string" },
+        "database_id": { "type": "string" },
+        "chains": { "type": "array", "items": { "type": "string" } },
+        "variant": { "$ref": "aminoacid_variant.json#properties/predicted_structure_variant" }
+      },
+      "required": ["database_name", "database_id"]
+    },
+    "uniprot": {
+      "type": "object",
+      "properties": {
+        "database_id": { "type": "string" },
+        "variant": { "$ref": "aminoacid_variant.json#/properties/uniprot_variant" }
+      },
+      "required": ["database_id"]
+    },
+    "alternative_sequence_database": {
+      "type": "object",
+      "properties": {
+        "database_name": { "type": "string" },
+        "database_id": { "type": "string" },
+        "variant": { "$ref": "aminoacid_variant.json#properties/alt_sequence_variant" }
+      },
+      "required": ["database_name","database_id"]
+    },
+    "thermodynamic_data": {
+      "type": "array",
+      "items": {
+        "$ref": "thermodynamic_data.json"
+      }
+    },
+    "dataset": {
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" },
+        "version": { "type": "string" },
+        "creation_date": { "type": "string" },
+        "group_id": { "type": "string" }
+      },
+      "required": ["name", "version", "creation_date"]
+    }
+  },
+  "required": ["thermodynamic_data"],
+  "oneOf": [
+    { "required": ["pdb"] },
+    { "required": ["predicted_structure"] },
+    { "required": ["uniprot"] },
+    { "required": ["alternative_sequence_database"] }
+  ]
+}
+

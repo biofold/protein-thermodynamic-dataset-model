@@ -1,0 +1,55 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://example.com/product.schema.json",
+  "title": "Protein Variants Dataset Schema",
+  "dataset": {
+    "type": "object",
+    "properties": {
+      "name": { "type": "string" },
+      "description": { "type": "string" },
+      "version": { "type": "string" },
+      "creation_date": { "type": "string" },
+      "grouping_procedure": { "type": "string" },
+      "additional_info": { "type": "string" },
+      "author": { "type": "string" },
+      "groups": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "group_id": { "type": "string" },
+            "group_name": { "type": "string" },
+            "protein_variants": {
+              "type": "array",
+              "items": {
+                "$ref": "protein_variant.json"
+              }
+            }
+          },
+          "required": ["group_id", "protein_variants"]
+        }
+      },
+      "reference": {
+        "type": "object",
+        "properties": {
+          "publication": {
+            "type": "string",
+            "description": "Publication reference"
+          },
+          "PMID": {
+            "type": "string",
+            "pattern": "^[0-9]{8}$",
+            "description": "PubMed Identifier (PMID) of the publication"
+          },
+          "DOI": {
+            "type": "string",
+            "description": "Digital Object Identifier (DOI) of the publication"
+          }
+        },
+        "required": ["publication", "DOI"]
+      }
+    },
+    "required": ["name", "groups", "reference"]
+  }
+}
+

@@ -1,0 +1,92 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://example.com/product.schema.json",
+  "title": "Thermodynamic Experiment Schema",
+  "type": "object",
+  "properties": {
+    "method": {
+      "type": "string",
+      "description": "Method used for the experiment (e.g., circular dichroism, fluorescence spectroscopy)"
+    },
+    "conditions": {
+      "type": "object",
+      "properties": {
+        "temperature": {
+          "type": "number",
+          "description": "Temperature at which the experiment was performed"
+        },
+        "pH": {
+          "type": "number",
+          "description": "pH at which the experiment was performed"
+        },
+        "denaturant": {
+          "type": "string",
+          "description": "Type of denaturant used"
+        },
+        "denaturant_concentration": {
+          "type": "number",
+          "description": "Concentration of the denaturant used in molar units"
+        },
+        "buffer_name": {
+          "type": "string",
+          "description": "Name of the buffer used in the experiment"
+        },
+        "buffer_concentration": {
+          "type": "number",
+          "description": "Concentration of the buffer used in molar units"
+        },
+        "ion_name": {
+          "type": "string",
+          "description": "Name of the ion used in the experiment"
+        },
+        "ion_concentration": {
+          "type": "number",
+          "description": "Concentration of the ion used in molar units"
+        },
+        "additives": {
+          "type": "string",
+          "description": "Any additives used in the experiment"
+        },
+        "protein_concentration": {
+          "type": "number",
+          "description": "Concentration of the protein used in the experiment in molar units"
+        }
+      },
+      "required": 
+      "anyOf": [
+        { "required": ["temperature"] },
+        { "required": ["pH"] }
+      ]
+    },
+    "reference": {
+      "type": "object",
+      "properties": {
+        "publication": {
+          "type": "string",
+          "description": "Publication reference"
+        },
+        "PMID": {
+          "type": "string",
+          "pattern": "^[0-9]{8}$",
+          "description": "PubMed Identifier (PMID) of the publication"
+        },
+        "DOI": {
+          "type": "string",
+          "description": "Digital Object Identifier (DOI) of the publication"
+        }
+      },
+      "required": ["publication", "DOI"]
+    },
+    "metadata": {
+      "type": "object",
+      "properties": {
+        "comment": {
+          "type": "string",
+          "description": "Additional comments about the experiment"
+        }
+      }
+    }
+  },
+  "required": ["method", "conditions", "reference"]
+}
+
