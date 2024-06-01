@@ -13,21 +13,16 @@
       "grouping_procedure": { "type": "string" },
       "additional_info": { "type": "string" },
       "author": { "type": "string" },
-      "sets": {
+      "records": {
         "type": "array",
         "items": {
           "type": "object",
           "properties": {
-            "set_id": { "type": "string" },
-            "set_name": { "type": "string" },
-            "protein_variants": {
-              "type": "array",
-              "items": {
-                "$ref": "protein_variant.json"
-              }
+            "_id": { "type": "string" },
+            "record": { "$ref": "protein_variant.json" }
             }
           },
-          "required": ["set_id", "protein_variants"]
+          "required": ["_id", "record"]
         }
       },
       "reference": {
@@ -50,7 +45,7 @@
         "required": ["publication", "DOI"]
       }
     },
-    "required": ["name", "sets", "reference"]
+    "required": ["name", "records", "reference"]
   }
 }
 
