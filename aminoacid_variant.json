@@ -34,7 +34,7 @@
         "type": "object",
         "properties": {
           "wild_type_residue": { "type": "string" },
-          "position": { "type": "string" },
+          "position": { "type": "integer" },
           "altloc": { "type": "string" },
           "mutant_residue": { "type": "string" },
           "chain": { "type": "string" }
@@ -48,7 +48,7 @@
         "type": "object",
         "properties": {
           "wild_type_residue": { "type": "string" },
-          "position": { "type": "string" },
+          "position": { "type": "integer" },
           "mutant_residue": { "type": "string" },
           "chain": { "type": "string" }
         },
