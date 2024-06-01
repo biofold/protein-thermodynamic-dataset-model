@@ -58,3 +58,4 @@ This document provides an overview of five JSON schemas for different types of d
 
 Each schema provides a structured format for organizing and validating specific types of data related to protein variants, experimental data, and thermodynamic data.
 
+
