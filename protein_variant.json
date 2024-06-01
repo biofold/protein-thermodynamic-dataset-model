@@ -59,7 +59,7 @@
     }
   },
   "required": ["thermodynamic_data"],
-  "oneOf": [
+  "anyOf": [
     { "required": ["pdb"] },
     { "required": ["predicted_structure"] },
     { "required": ["uniprot"] },
