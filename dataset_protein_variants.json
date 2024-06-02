@@ -57,6 +57,7 @@
       "items": {
         "type": "object",
         "properties": {
+          "_id": { "type": "string" },
           "record": { "$ref": "protein_variant.json" }
         },
         "required": ["_id", "record"]

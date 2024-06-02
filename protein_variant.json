@@ -11,7 +11,7 @@
     "pdb": {
       "type": "object",
       "properties": {
-        "type": { "type": "string", "const": "PDBVariant" },
+        "type": { "type": "string", "const": "Structure" },
         "database_id": { "type": "string" },
         "chains": { "type": "array", "items": { "type": "string" } },
         "experiment_type": { "type": "string", "description": "Type of experiment used to determine the structure" },
@@ -22,7 +22,7 @@
     "predicted_structure": {
       "type": "object",
       "properties": {
-        "type": { "type": "string", "const": "PredictedStructureVariant" },
+        "type": { "type": "string", "const": "PredictedStructure" },
         "database_name": { "type": "string" },
         "database_id": { "type": "string" },
         "chains": { "type": "array", "items": { "type": "string" } },
@@ -33,7 +33,7 @@
     "uniprot": {
       "type": "object",
       "properties": {
-        "type": { "type": "string", "const": "UniprotVariant" },
+        "type": { "type": "string", "const": "Uniprot" },
         "database_id": { "type": "string" },
         "variant": { "$ref": "aminoacid_variant.json#/properties/uniprot_variant" }
       },
@@ -42,7 +42,7 @@
     "alternative_sequence_database": {
       "type": "object",
       "properties": {
-        "type": { "type": "string", "const": "AlternativeSequenceDatabaseVariant" },
+        "type": { "type": "string", "const": "AlternativeSequence" },
         "database_name": { "type": "string" },
         "database_id": { "type": "string" },
         "variant": { "$ref": "aminoacid_variant.json#/properties/alt_sequence_variant" }

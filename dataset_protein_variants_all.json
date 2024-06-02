@@ -116,6 +116,7 @@
             "items": {
                 "type": "object",
                 "properties": {
+                    "_id": { "type": "string" },
                     "record": {
                         "$schema": "http://json-schema.org/draft-07/schema#",
                         "$id": "https://raw.githubusercontent.com/biofold/protein-thermodynamic-dataset-model/master/protein_variant.json",
@@ -141,7 +142,7 @@
                                 "properties": {
                                     "type": {
                                         "type": "string",
-                                        "const": "PDBVariant"
+                                        "const": "Structure"
                                     },
                                     "database_id": {
                                         "type": "string"
@@ -202,7 +203,7 @@
                                 "properties": {
                                     "type": {
                                         "type": "string",
-                                        "const": "PredictedStructureVariant"
+                                        "const": "PredictedStructure"
                                     },
                                     "database_name": {
                                         "type": "string"
@@ -259,7 +260,7 @@
                                 "properties": {
                                     "type": {
                                         "type": "string",
-                                        "const": "UniprotVariant"
+                                        "const": "Uniprot"
                                     },
                                     "database_id": {
                                         "type": "string"
@@ -302,7 +303,7 @@
                                 "properties": {
                                     "type": {
                                         "type": "string",
-                                        "const": "AlternativeSequenceDatabaseVariant"
+                                        "const": "AlternativeSequence"
                                     },
                                     "database_name": {
                                         "type": "string"
