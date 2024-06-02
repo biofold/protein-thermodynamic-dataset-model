@@ -18,6 +18,8 @@
         "type": "object",
         "properties": {
           "_id": { "type": "string" },
+          "cluster_id": { "type": "string" },
+          "cluster_info": { "type": "string" },
           "record": { "$ref": "protein_variant.json" }
         },
         "required": ["_id", "record"]
@@ -30,17 +32,17 @@
           "type": "string",
           "description": "Publication reference"
         },
-        "PMID": {
+        "pmid": {
           "type": "string",
           "pattern": "^[0-9]{8}$",
           "description": "PubMed Identifier (PMID) of the publication"
         },
-        "DOI": {
+        "doi": {
           "type": "string",
           "description": "Digital Object Identifier (DOI) of the publication"
         }
       },
-      "required": ["publication", "DOI"]
+      "required": ["publication", "doi"]
     }
   },
   "required": ["name", "records", "reference"]

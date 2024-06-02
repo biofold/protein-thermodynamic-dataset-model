@@ -9,10 +9,10 @@
       "properties": {
         "database_id": { "type": "string" },
         "chains": { "type": "array", "items": { "type": "string" } },
-        "experimental_type": { "type": "string", "enum": ["X-ray", "NMR"], "description": "Type of experiment used to determine the structure" },
+        "experiment_type": { "type": "string", "description": "Type of experiment used to determine the structure" },
         "variant": { "$ref": "aminoacid_variant.json#properties/pdb_variant" }
       },
-      "required": ["database_id", "experimental_type"]
+      "required": ["database_id", "experiment_type"]
     },
     "predicted_structure": {
       "type": "object",
@@ -42,10 +42,7 @@
       "required": ["database_name","database_id"]
     },
     "thermodynamic_data": {
-      "type": "array",
-      "items": {
         "$ref": "thermodynamic_data.json"
-      }
     },
     "object_type": { "const": "protein_variant"}
   },

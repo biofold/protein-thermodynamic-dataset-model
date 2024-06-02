@@ -60,21 +60,21 @@
     "reference": {
       "type": "object",
       "properties": {
-        "publication": {
+        "publication_experiment": {
           "type": "string",
           "description": "Publication reference"
         },
-        "PMID": {
+        "pmid": {
           "type": "string",
           "pattern": "^[0-9]{8}$",
           "description": "PubMed Identifier (PMID) of the publication"
         },
-        "DOI": {
+        "pmid": {
           "type": "string",
           "description": "Digital Object Identifier (DOI) of the publication"
         }
       },
-      "required": ["publication", "DOI"]
+      "required": ["publication", "doi"]
     },
     "object_type": { "const": "thermodynamic_experiment"},
     "metadata": {

@@ -68,7 +68,7 @@
       },
       "description": "Additional user-defined thermodynamic measures"
     },
-    "object_type": { "const": "thermodynamic_experiment"}
+    "object_type": { "const": "thermodynamic_data"}
   },
   "required": ["experiment"],
   "anyOf": [
