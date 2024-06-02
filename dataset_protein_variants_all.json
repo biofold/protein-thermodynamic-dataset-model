@@ -1,0 +1,677 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "https://github.com/biofold/protein-thermodynamic-dataset-model/blob/master/dataset_protein_variants.json",
+    "title": "Protein Variants Dataset Schema",
+    "type": "object",
+    "properties": {
+        "context": {
+            "type": "string",
+            "const": "https://schema.org"
+        },
+        "type": {
+            "type": "string",
+            "const": "Dataset"
+        },
+        "name": {
+            "type": "string"
+        },
+        "description": {
+            "type": "string"
+        },
+        "version": {
+            "type": "string"
+        },
+        "dateCreated": {
+            "type": "string",
+            "format": "date"
+        },
+        "dateModified": {
+            "type": "string",
+            "format": "date"
+        },
+        "additionalType": {
+            "type": "string"
+        },
+        "creator": {
+            "type": "object",
+            "properties": {
+                "type": {
+                    "type": "string",
+                    "const": "Person"
+                },
+                "name": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "type",
+                "name"
+            ]
+        },
+        "object_type": {
+            "const": "protein_variant_dataset"
+        },
+        "identifier": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "type": "string",
+                        "const": "PropertyValue"
+                    },
+                    "propertyID": {
+                        "type": "string"
+                    },
+                    "value": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "type",
+                    "propertyID",
+                    "value"
+                ]
+            }
+        },
+        "includedInDataCatalog": {
+            "type": "object",
+            "properties": {
+                "type": {
+                    "type": "string",
+                    "const": "DataCatalog"
+                },
+                "name": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "type",
+                "name"
+            ]
+        },
+        "distribution": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "type": "string",
+                        "const": "DataDownload"
+                    },
+                    "contentUrl": {
+                        "type": "string",
+                        "format": "uri"
+                    },
+                    "encodingFormat": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "type",
+                    "contentUrl",
+                    "encodingFormat"
+                ]
+            }
+        },
+        "records": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "_id": {
+                        "type": "string"
+                    },
+                    "cluster_id": {
+                        "type": "string"
+                    },
+                    "cluster_info": {
+                        "type": "string"
+                    },
+                    "record": {
+                        "$schema": "http://json-schema.org/draft-07/schema#",
+                        "$id": "https://github.com/biofold/protein-thermodynamic-dataset-model/blob/master/protein_variant.json",
+                        "title": "Protein Variant Schema",
+                        "type": "object",
+                        "properties": {
+                            "context": {
+                                "type": "string",
+                                "const": "https://schema.org"
+                            },
+                            "type": {
+                                "type": "string",
+                                "const": "ProteinVariant"
+                            },
+                            "pdb": {
+                                "type": "object",
+                                "properties": {
+                                    "type": {
+                                        "type": "string",
+                                        "const": "PDBVariant"
+                                    },
+                                    "database_id": {
+                                        "type": "string"
+                                    },
+                                    "chains": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "experiment_type": {
+                                        "type": "string",
+                                        "description": "Type of experiment used to determine the structure"
+                                    },
+                                    "variant": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "object",
+                                            "properties": {
+                                                "type": {
+                                                    "type": "string",
+                                                    "const": "PDBVariant"
+                                                },
+                                                "wildTypeResidue": {
+                                                    "type": "string"
+                                                },
+                                                "position": {
+                                                    "type": "integer"
+                                                },
+                                                "altloc": {
+                                                    "type": "string"
+                                                },
+                                                "mutantResidue": {
+                                                    "type": "string"
+                                                },
+                                                "chain": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "required": [
+                                                "type",
+                                                "wildTypeResidue",
+                                                "position",
+                                                "mutantResidue",
+                                                "chain"
+                                            ]
+                                        }
+                                    }
+                                },
+                                "required": [
+                                    "type",
+                                    "database_id",
+                                    "experiment_type"
+                                ]
+                            },
+                            "predicted_structure": {
+                                "type": "object",
+                                "properties": {
+                                    "type": {
+                                        "type": "string",
+                                        "const": "PredictedStructureVariant"
+                                    },
+                                    "database_name": {
+                                        "type": "string"
+                                    },
+                                    "database_id": {
+                                        "type": "string"
+                                    },
+                                    "chains": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "variant": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "object",
+                                            "properties": {
+                                                "type": {
+                                                    "type": "string",
+                                                    "const": "PredictedStructureVariant"
+                                                },
+                                                "wildTypeResidue": {
+                                                    "type": "string"
+                                                },
+                                                "position": {
+                                                    "type": "integer"
+                                                },
+                                                "mutantResidue": {
+                                                    "type": "string"
+                                                },
+                                                "chain": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "required": [
+                                                "type",
+                                                "wildTypeResidue",
+                                                "position",
+                                                "mutantResidue",
+                                                "chain"
+                                            ]
+                                        }
+                                    }
+                                },
+                                "required": [
+                                    "type",
+                                    "database_name",
+                                    "database_id"
+                                ]
+                            },
+                            "uniprot": {
+                                "type": "object",
+                                "properties": {
+                                    "type": {
+                                        "type": "string",
+                                        "const": "UniprotVariant"
+                                    },
+                                    "database_id": {
+                                        "type": "string"
+                                    },
+                                    "variant": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "object",
+                                            "properties": {
+                                                "type": {
+                                                    "type": "string",
+                                                    "const": "UniprotVariant"
+                                                },
+                                                "wildTypeResidue": {
+                                                    "type": "string"
+                                                },
+                                                "position": {
+                                                    "type": "integer"
+                                                },
+                                                "mutantResidue": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "required": [
+                                                "type",
+                                                "wildTypeResidue",
+                                                "position",
+                                                "mutantResidue"
+                                            ]
+                                        }
+                                    }
+                                },
+                                "required": [
+                                    "type",
+                                    "database_id"
+                                ]
+                            },
+                            "alternative_sequence_database": {
+                                "type": "object",
+                                "properties": {
+                                    "type": {
+                                        "type": "string",
+                                        "const": "AlternativeSequenceDatabaseVariant"
+                                    },
+                                    "database_name": {
+                                        "type": "string"
+                                    },
+                                    "database_id": {
+                                        "type": "string"
+                                    },
+                                    "variant": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "object",
+                                            "properties": {
+                                                "type": {
+                                                    "type": "string",
+                                                    "const": "AltSequenceVariant"
+                                                },
+                                                "wildTypeResidue": {
+                                                    "type": "string"
+                                                },
+                                                "position": {
+                                                    "type": "integer"
+                                                },
+                                                "mutantResidue": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "required": [
+                                                "type",
+                                                "wildTypeResidue",
+                                                "position",
+                                                "mutantResidue"
+                                            ]
+                                        }
+                                    }
+                                },
+                                "required": [
+                                    "type",
+                                    "database_name",
+                                    "database_id"
+                                ]
+                            },
+                            "thermodynamic_data": {
+                                "$schema": "http://json-schema.org/draft-07/schema#",
+                                "$id": "https://github.com/biofold/protein-thermodynamic-dataset-model/blob/master/thermodynamic_data.json",
+                                "title": "Thermodynamic Data Schema",
+                                "type": "object",
+                                "properties": {
+                                    "context": {
+                                        "type": "string",
+                                        "const": "https://schema.org"
+                                    },
+                                    "type": {
+                                        "type": "string",
+                                        "const": "ThermodynamicData"
+                                    },
+                                    "objectType": {
+                                        "type": "string",
+                                        "const": "thermodynamic_data"
+                                    },
+                                    "meltingTemperature": {
+                                        "type": "number",
+                                        "description": "Melting temperature of the variant in degrees Celsius"
+                                    },
+                                    "unfoldingPercentage": {
+                                        "type": "number",
+                                        "description": "Percentage of protein unfolded"
+                                    },
+                                    "dG_H2O": {
+                                        "type": "number",
+                                        "description": "Change in unfolding free energy in water"
+                                    },
+                                    "fittingModel": {
+                                        "type": "string",
+                                        "description": "Model used for fitting the data to determine dG (e.g., two-state model, three-state model)"
+                                    },
+                                    "experiment": {
+                                        "$schema": "http://json-schema.org/draft-07/schema#",
+                                        "$id": "https://github.com/biofold/protein-thermodynamic-dataset-model/blob/master/thermodynamic_experiment.json",
+                                        "title": "Thermodynamic Experiment Schema",
+                                        "type": "object",
+                                        "properties": {
+                                            "context": {
+                                                "type": "string",
+                                                "const": "https://schema.org"
+                                            },
+                                            "type": {
+                                                "type": "string",
+                                                "const": "ThermodynamicExperiment"
+                                            },
+                                            "objectType": {
+                                                "type": "string",
+                                                "const": "thermodynamic_experiment"
+                                            },
+                                            "method": {
+                                                "type": "string",
+                                                "description": "Method used for the experiment (e.g., circular dichroism, fluorescence spectroscopy)"
+                                            },
+                                            "conditions": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "temperature": {
+                                                        "type": "number",
+                                                        "description": "Temperature at which the experiment was performed"
+                                                    },
+                                                    "pH": {
+                                                        "type": "number",
+                                                        "description": "pH at which the experiment was performed"
+                                                    },
+                                                    "denaturant": {
+                                                        "type": "string",
+                                                        "description": "Type of denaturant used"
+                                                    },
+                                                    "denaturant_concentration": {
+                                                        "type": "number",
+                                                        "description": "Concentration of the denaturant used in molar units"
+                                                    },
+                                                    "buffer_name": {
+                                                        "type": "string",
+                                                        "description": "Name of the buffer used in the experiment"
+                                                    },
+                                                    "buffer_concentration": {
+                                                        "type": "number",
+                                                        "description": "Concentration of the buffer used in molar units"
+                                                    },
+                                                    "ion_name": {
+                                                        "type": "string",
+                                                        "description": "Name of the ion used in the experiment"
+                                                    },
+                                                    "ion_concentration": {
+                                                        "type": "number",
+                                                        "description": "Concentration of the ion used in molar units"
+                                                    },
+                                                    "additives": {
+                                                        "type": "string",
+                                                        "description": "Any additives used in the experiment"
+                                                    },
+                                                    "protein_concentration": {
+                                                        "type": "number",
+                                                        "description": "Concentration of the protein used in the experiment in molar units"
+                                                    }
+                                                },
+                                                "anyOf": [
+                                                    {
+                                                        "required": [
+                                                            "temperature"
+                                                        ]
+                                                    },
+                                                    {
+                                                        "required": [
+                                                            "pH"
+                                                        ]
+                                                    }
+                                                ]
+                                            },
+                                            "reference": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "publicationExperiment": {
+                                                        "type": "string",
+                                                        "description": "Publication reference"
+                                                    },
+                                                    "pmid": {
+                                                        "type": "string",
+                                                        "pattern": "^[0-9]{8}$",
+                                                        "description": "PubMed Identifier (PMID) of the publication"
+                                                    },
+                                                    "doi": {
+                                                        "type": "string",
+                                                        "description": "Digital Object Identifier (DOI) of the publication"
+                                                    }
+                                                },
+                                                "required": [
+                                                    "publicationExperiment",
+                                                    "doi"
+                                                ]
+                                            },
+                                            "metadata": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "comment": {
+                                                        "type": "string",
+                                                        "description": "Additional comments about the experiment"
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        "required": [
+                                            "context",
+                                            "type",
+                                            "method",
+                                            "conditions",
+                                            "reference"
+                                        ]
+                                    },
+                                    "slopeDenaturationCurve": {
+                                        "type": "number",
+                                        "description": "Slope of the denaturation curve"
+                                    },
+                                    "midpointDenaturation": {
+                                        "type": "number",
+                                        "description": "Midpoint of denaturation"
+                                    },
+                                    "changeMeltingTemperature": {
+                                        "type": "number",
+                                        "description": "Change in melting temperature"
+                                    },
+                                    "temperature": {
+                                        "type": "number",
+                                        "description": "Temperature"
+                                    },
+                                    "changeFreeEnergy": {
+                                        "type": "number",
+                                        "description": "Change in free energy"
+                                    },
+                                    "changeInChangeFreeEnergy": {
+                                        "type": "number",
+                                        "description": "Change in change in free energy"
+                                    },
+                                    "changeEnthalpy": {
+                                        "type": "number",
+                                        "description": "Change in enthalpy"
+                                    },
+                                    "changeVan'tHoffEnthalpy": {
+                                        "type": "number",
+                                        "description": "Change in van't Hoff enthalpy"
+                                    },
+                                    "changeHeatCapacity": {
+                                        "type": "number",
+                                        "description": "Change in heat capacity"
+                                    },
+                                    "otherMeasures": {
+                                        "type": "object",
+                                        "properties": {
+                                            "type": "string",
+                                            "description": "Other user-defined thermodynamic measures"
+                                        },
+                                        "description": "Additional user-defined thermodynamic measures"
+                                    }
+                                },
+                                "required": [
+                                    "context",
+                                    "type",
+                                    "experiment"
+                                ],
+                                "anyOf": [
+                                    {
+                                        "required": [
+                                            "meltingTemperature"
+                                        ]
+                                    },
+                                    {
+                                        "required": [
+                                            "dG_H2O"
+                                        ]
+                                    },
+                                    {
+                                        "required": [
+                                            "changeInChangeFreeEnergy"
+                                        ]
+                                    },
+                                    {
+                                        "required": [
+                                            "changeFreeEnergy"
+                                        ]
+                                    },
+                                    {
+                                        "required": [
+                                            "dG"
+                                        ]
+                                    },
+                                    {
+                                        "required": [
+                                            "ddG"
+                                        ]
+                                    }
+                                ]
+                            },
+                            "object_type": {
+                                "const": "protein_variant"
+                            }
+                        },
+                        "required": [
+                            "context",
+                            "type",
+                            "thermodynamic_data"
+                        ],
+                        "anyOf": [
+                            {
+                                "required": [
+                                    "pdb"
+                                ]
+                            },
+                            {
+                                "required": [
+                                    "predicted_structure"
+                                ]
+                            },
+                            {
+                                "required": [
+                                    "uniprot"
+                                ]
+                            },
+                            {
+                                "required": [
+                                    "alternative_sequence_database"
+                                ]
+                            }
+                        ]
+                    }
+                },
+                "required": [
+                    "_id",
+                    "record"
+                ]
+            }
+        },
+        "citation": {
+            "type": "object",
+            "properties": {
+                "type": {
+                    "type": "string",
+                    "const": "CreativeWork"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "identifier": {
+                    "type": "object",
+                    "properties": {
+                        "type": {
+                            "type": "string",
+                            "const": "PropertyValue"
+                        },
+                        "propertyID": {
+                            "type": "string",
+                            "enum": [
+                                "PMID",
+                                "DOI"
+                            ]
+                        },
+                        "value": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "type",
+                        "propertyID",
+                        "value"
+                    ]
+                }
+            },
+            "required": [
+                "type",
+                "name",
+                "identifier"
+            ]
+        }
+    },
+    "required": [
+        "context",
+        "type",
+        "name",
+        "records",
+        "citation"
+    ]
+}
