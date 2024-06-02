@@ -23,7 +23,7 @@ This program is distributed in the hope that it will be useful, but WITHOUT ANY 
   - `additional_info`: Additional information about the dataset.
   - `author`: Author of the dataset.
   - `records`: Array of protein variants.
-     - `records`: Protein variants.
+     - `record`: Protein variants.
         - `_id`: Identifier.
         - `cluster_id`: Cluster identifier.
         - `cluster_info`: Information about the clusterin proceduere.
