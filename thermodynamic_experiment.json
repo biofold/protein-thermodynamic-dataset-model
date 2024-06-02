@@ -6,7 +6,6 @@
   "properties": {
     "context": { "type": "string", "const": "https://schema.org" },
     "type": { "type": "string", "const": "ThermodynamicExperiment" },
-    "objectType": { "type": "string", "const": "thermodynamic_experiment"},
     "method": {
       "type": "string",
       "description": "Method used for the experiment (e.g., circular dichroism, fluorescence spectroscopy)"
@@ -14,7 +13,7 @@
     "conditions": {
       "type": "object",
       "properties": {
-        "temperature": {
+        "T": {
           "type": "number",
           "description": "Temperature at which the experiment was performed"
         },
@@ -56,7 +55,7 @@
         }
       },
       "anyOf": [
-        { "required": ["temperature"] },
+        { "required": ["T"] },
         { "required": ["pH"] }
       ]
     },

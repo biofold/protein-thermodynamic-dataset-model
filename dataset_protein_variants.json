@@ -20,7 +20,6 @@
       },
       "required": ["type", "name"]
     },
-    "object_type": { "const": "protein_variant_dataset" },
     "identifier": {
       "type": "array",
       "items": {
@@ -58,9 +57,6 @@
       "items": {
         "type": "object",
         "properties": {
-          "_id": { "type": "string" },
-          "cluster_id": { "type": "string" },
-          "cluster_info": { "type": "string" },
           "record": { "$ref": "protein_variant.json" }
         },
         "required": ["_id", "record"]

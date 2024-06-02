@@ -6,18 +6,57 @@
   "properties": {
     "context": { "type": "string", "const": "https://schema.org" },
     "type": { "type": "string", "const": "ThermodynamicData" },
-    "objectType": { "type": "string", "const": "thermodynamic_data"},
-    "meltingTemperature": {
-      "type": "number",
-      "description": "Melting temperature of the variant in degrees Celsius"
+    "reversibility": {
+      "type": "string",
+      "description": "Reversibility of the unfolding process."
     },
     "unfoldingPercentage": {
       "type": "number",
       "description": "Percentage of protein unfolded"
     },
+    "Tm": {
+      "type": "number",
+      "description": "Melting temperature of the variant in degrees Celsius"
+    },
     "dG_H2O": {
       "type": "number",
       "description": "Change in unfolding free energy in water"
+    },
+    "ddG_H2O": {
+      "type": "number",
+      "description": "Variation of change in unfolding free energy in water"
+    },
+    "m": {
+      "type": "number",
+      "description": "Slope of the denaturation curve"
+    },
+    "Cm": {
+      "type": "number",
+      "description": "Midpoint of denaturation"
+    },
+    "dTm": {
+      "type": "number",
+      "description": "Change in melting temperature"
+    },
+    "dG": {
+      "type": "number",
+      "description": "Change in free energy"
+    },
+    "ddG": {
+      "type": "number",
+      "description": "Change in change in free energy"
+    },
+    "dH": {
+      "type": "number",
+      "description": "Change in enthalpy"
+    },
+    "dHvH": {
+      "type": "number",
+      "description": "Change in van't Hoff enthalpy"
+    },
+    "dCp": {
+      "type": "number",
+      "description": "Change in heat capacity"
     },
     "fittingModel": {
       "type": "string",
@@ -27,57 +66,16 @@
       "$ref": "thermodynamic_experiment.json",
       "description": "Experimental data"
     },
-    "slopeDenaturationCurve": {
-      "type": "number",
-      "description": "Slope of the denaturation curve"
-    },
-    "midpointDenaturation": {
-      "type": "number",
-      "description": "Midpoint of denaturation"
-    },
-    "changeMeltingTemperature": {
-      "type": "number",
-      "description": "Change in melting temperature"
-    },
-    "temperature": {
-      "type": "number",
-      "description": "Temperature"
-    },
-    "changeFreeEnergy": {
-      "type": "number",
-      "description": "Change in free energy"
-    },
-    "changeInChangeFreeEnergy": {
-      "type": "number",
-      "description": "Change in change in free energy"
-    },
-    "changeEnthalpy": {
-      "type": "number",
-      "description": "Change in enthalpy"
-    },
-    "changeVan'tHoffEnthalpy": {
-      "type": "number",
-      "description": "Change in van't Hoff enthalpy"
-    },
-    "changeHeatCapacity": {
-      "type": "number",
-      "description": "Change in heat capacity"
-    },
     "otherMeasures": {
-        "type": "object",
-        "properties": {
-         "type": "string",
-          "description": "Other user-defined thermodynamic measures"
-        },
-        "description": "Additional user-defined thermodynamic measures"
+      "type": "string",
+      "description": "Other user-defined thermodynamic measures"
     }
   },
   "required": ["context", "type", "experiment"],
   "anyOf": [
-    { "required": ["meltingTemperature"] },
+    { "required": ["Tm"] },
     { "required": ["dG_H2O"] },
-    { "required": ["changeInChangeFreeEnergy"] },
-    { "required": ["changeFreeEnergy"] },
+    { "required": ["ddG_H2O"] },
     { "required": ["dG"] },
     { "required": ["ddG"] }
   ]

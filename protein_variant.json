@@ -6,6 +6,8 @@
   "properties": {
     "context": { "type": "string", "const": "https://schema.org" },
     "type": { "type": "string", "const": "ProteinVariant" },
+    "cluster_id": { "type": "string" },
+    "cluster_info": { "type": "string" },
     "pdb": {
       "type": "object",
       "properties": {
@@ -47,12 +49,11 @@
       },
       "required": ["type", "database_name","database_id"]
     },
-    "thermodynamic_data": {
+    "data": {
         "$ref": "thermodynamic_data.json"
-    },
-    "object_type": { "const": "protein_variant"}
+    }
   },
-  "required": ["context", "type", "thermodynamic_data"],
+  "required": ["context", "type", "data"],
   "anyOf": [
     { "required": ["pdb"] },
     { "required": ["predicted_structure"] },

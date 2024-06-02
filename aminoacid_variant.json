@@ -6,7 +6,6 @@
   "properties": {
     "context": { "type": "string", "const": "https://schema.org" },
     "type": { "type": "string", "const": "AminoAcidVariant" },
-    "objectType": { "type": "string", "const": "aminoacid_variant"},
     "uniprot_variant": {
       "type": "array",
       "items": {

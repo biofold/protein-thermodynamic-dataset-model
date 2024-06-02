@@ -48,9 +48,6 @@
                 "name"
             ]
         },
-        "object_type": {
-            "const": "protein_variant_dataset"
-        },
         "identifier": {
             "type": "array",
             "items": {
@@ -119,18 +116,9 @@
             "items": {
                 "type": "object",
                 "properties": {
-                    "_id": {
-                        "type": "string"
-                    },
-                    "cluster_id": {
-                        "type": "string"
-                    },
-                    "cluster_info": {
-                        "type": "string"
-                    },
                     "record": {
                         "$schema": "http://json-schema.org/draft-07/schema#",
-                        "$id": "https://github.com/biofold/protein-thermodynamic-dataset-model/blob/master/protein_variant.json",
+                        "$id": "https://raw.githubusercontent.com/biofold/protein-thermodynamic-dataset-model/master/protein_variant.json",
                         "title": "Protein Variant Schema",
                         "type": "object",
                         "properties": {
@@ -141,6 +129,12 @@
                             "type": {
                                 "type": "string",
                                 "const": "ProteinVariant"
+                            },
+                            "cluster_id": {
+                                "type": "string"
+                            },
+                            "cluster_info": {
+                                "type": "string"
                             },
                             "pdb": {
                                 "type": "object",
@@ -350,9 +344,9 @@
                                     "database_id"
                                 ]
                             },
-                            "thermodynamic_data": {
+                            "data": {
                                 "$schema": "http://json-schema.org/draft-07/schema#",
-                                "$id": "https://github.com/biofold/protein-thermodynamic-dataset-model/blob/master/thermodynamic_data.json",
+                                "$id": "https://raw.githubusercontent.com/biofold/protein-thermodynamic-dataset-model/master/thermodynamic_data.json",
                                 "title": "Thermodynamic Data Schema",
                                 "type": "object",
                                 "properties": {
@@ -364,21 +358,57 @@
                                         "type": "string",
                                         "const": "ThermodynamicData"
                                     },
-                                    "objectType": {
+                                    "reversibility": {
                                         "type": "string",
-                                        "const": "thermodynamic_data"
-                                    },
-                                    "meltingTemperature": {
-                                        "type": "number",
-                                        "description": "Melting temperature of the variant in degrees Celsius"
+                                        "description": "Reversibility of the unfolding process."
                                     },
                                     "unfoldingPercentage": {
                                         "type": "number",
                                         "description": "Percentage of protein unfolded"
                                     },
+                                    "Tm": {
+                                        "type": "number",
+                                        "description": "Melting temperature of the variant in degrees Celsius"
+                                    },
                                     "dG_H2O": {
                                         "type": "number",
                                         "description": "Change in unfolding free energy in water"
+                                    },
+                                    "ddG_H2O": {
+                                        "type": "number",
+                                        "description": "Variation of change in unfolding free energy in water"
+                                    },
+                                    "m": {
+                                        "type": "number",
+                                        "description": "Slope of the denaturation curve"
+                                    },
+                                    "Cm": {
+                                        "type": "number",
+                                        "description": "Midpoint of denaturation"
+                                    },
+                                    "dTm": {
+                                        "type": "number",
+                                        "description": "Change in melting temperature"
+                                    },
+                                    "dG": {
+                                        "type": "number",
+                                        "description": "Change in free energy"
+                                    },
+                                    "ddG": {
+                                        "type": "number",
+                                        "description": "Change in change in free energy"
+                                    },
+                                    "dH": {
+                                        "type": "number",
+                                        "description": "Change in enthalpy"
+                                    },
+                                    "dHvH": {
+                                        "type": "number",
+                                        "description": "Change in van't Hoff enthalpy"
+                                    },
+                                    "dCp": {
+                                        "type": "number",
+                                        "description": "Change in heat capacity"
                                     },
                                     "fittingModel": {
                                         "type": "string",
@@ -386,7 +416,7 @@
                                     },
                                     "experiment": {
                                         "$schema": "http://json-schema.org/draft-07/schema#",
-                                        "$id": "https://github.com/biofold/protein-thermodynamic-dataset-model/blob/master/thermodynamic_experiment.json",
+                                        "$id": "https://raw.githubusercontent.com/biofold/protein-thermodynamic-dataset-model/master/thermodynamic_experiment.json",
                                         "title": "Thermodynamic Experiment Schema",
                                         "type": "object",
                                         "properties": {
@@ -398,10 +428,6 @@
                                                 "type": "string",
                                                 "const": "ThermodynamicExperiment"
                                             },
-                                            "objectType": {
-                                                "type": "string",
-                                                "const": "thermodynamic_experiment"
-                                            },
                                             "method": {
                                                 "type": "string",
                                                 "description": "Method used for the experiment (e.g., circular dichroism, fluorescence spectroscopy)"
@@ -409,7 +435,7 @@
                                             "conditions": {
                                                 "type": "object",
                                                 "properties": {
-                                                    "temperature": {
+                                                    "T": {
                                                         "type": "number",
                                                         "description": "Temperature at which the experiment was performed"
                                                     },
@@ -453,7 +479,7 @@
                                                 "anyOf": [
                                                     {
                                                         "required": [
-                                                            "temperature"
+                                                            "T"
                                                         ]
                                                     },
                                                     {
@@ -503,49 +529,9 @@
                                             "reference"
                                         ]
                                     },
-                                    "slopeDenaturationCurve": {
-                                        "type": "number",
-                                        "description": "Slope of the denaturation curve"
-                                    },
-                                    "midpointDenaturation": {
-                                        "type": "number",
-                                        "description": "Midpoint of denaturation"
-                                    },
-                                    "changeMeltingTemperature": {
-                                        "type": "number",
-                                        "description": "Change in melting temperature"
-                                    },
-                                    "temperature": {
-                                        "type": "number",
-                                        "description": "Temperature"
-                                    },
-                                    "changeFreeEnergy": {
-                                        "type": "number",
-                                        "description": "Change in free energy"
-                                    },
-                                    "changeInChangeFreeEnergy": {
-                                        "type": "number",
-                                        "description": "Change in change in free energy"
-                                    },
-                                    "changeEnthalpy": {
-                                        "type": "number",
-                                        "description": "Change in enthalpy"
-                                    },
-                                    "changeVan'tHoffEnthalpy": {
-                                        "type": "number",
-                                        "description": "Change in van't Hoff enthalpy"
-                                    },
-                                    "changeHeatCapacity": {
-                                        "type": "number",
-                                        "description": "Change in heat capacity"
-                                    },
                                     "otherMeasures": {
-                                        "type": "object",
-                                        "properties": {
-                                            "type": "string",
-                                            "description": "Other user-defined thermodynamic measures"
-                                        },
-                                        "description": "Additional user-defined thermodynamic measures"
+                                        "type": "string",
+                                        "description": "Other user-defined thermodynamic measures"
                                     }
                                 },
                                 "required": [
@@ -556,7 +542,7 @@
                                 "anyOf": [
                                     {
                                         "required": [
-                                            "meltingTemperature"
+                                            "Tm"
                                         ]
                                     },
                                     {
@@ -566,12 +552,7 @@
                                     },
                                     {
                                         "required": [
-                                            "changeInChangeFreeEnergy"
-                                        ]
-                                    },
-                                    {
-                                        "required": [
-                                            "changeFreeEnergy"
+                                            "ddG_H2O"
                                         ]
                                     },
                                     {
@@ -585,15 +566,12 @@
                                         ]
                                     }
                                 ]
-                            },
-                            "object_type": {
-                                "const": "protein_variant"
                             }
                         },
                         "required": [
                             "context",
                             "type",
-                            "thermodynamic_data"
+                            "data"
                         ],
                         "anyOf": [
                             {
