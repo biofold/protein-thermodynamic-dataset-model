@@ -5,7 +5,7 @@
   "type": "object",
   "properties": {
     "context": { "type": "string", "const": "https://schema.org" },
-    "type": { "type": "string", "const": "Dataset" },
+    "type": { "type": "string", "const": "ProteinVariantDataset" },
     "name": { "type": "string" },
     "description": { "type": "string" },
     "version": { "type": "string" },

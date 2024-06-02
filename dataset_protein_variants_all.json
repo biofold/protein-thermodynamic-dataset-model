@@ -10,7 +10,7 @@
         },
         "type": {
             "type": "string",
-            "const": "Dataset"
+            "const": "ProteinVariantDataset"
         },
         "name": {
             "type": "string"
