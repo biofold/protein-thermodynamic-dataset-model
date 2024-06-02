@@ -1,6 +1,6 @@
 {
     "$schema": "http://json-schema.org/draft-07/schema#",
-    "$id": "https://github.com/biofold/protein-thermodynamic-dataset-model/blob/master/dataset_protein_variants.json",
+    "$id": "https://raw.githubusercontent.com/biofold/protein-thermodynamic-dataset-model/master/dataset_protein_variants_all.json",
     "title": "Protein Variants Dataset Schema",
     "type": "object",
     "properties": {

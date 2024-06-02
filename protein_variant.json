@@ -1,52 +1,58 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "https://github.com/biofold/protein-thermodynamic-dataset-model/blob/master/protein_variant.json",
+  "$id": "https://raw.githubusercontent.com/biofold/protein-thermodynamic-dataset-model/master/protein_variant.json",
   "title": "Protein Variant Schema",
   "type": "object",
   "properties": {
+    "context": { "type": "string", "const": "https://schema.org" },
+    "type": { "type": "string", "const": "ProteinVariant" },
     "pdb": {
       "type": "object",
       "properties": {
+        "type": { "type": "string", "const": "PDBVariant" },
         "database_id": { "type": "string" },
         "chains": { "type": "array", "items": { "type": "string" } },
         "experiment_type": { "type": "string", "description": "Type of experiment used to determine the structure" },
-        "variant": { "$ref": "aminoacid_variant.json#properties/pdb_variant" }
+        "variant": { "$ref": "aminoacid_variant.json#/properties/pdb_variant" }
       },
-      "required": ["database_id", "experiment_type"]
+      "required": ["type", "database_id", "experiment_type"]
     },
     "predicted_structure": {
       "type": "object",
       "properties": {
+        "type": { "type": "string", "const": "PredictedStructureVariant" },
         "database_name": { "type": "string" },
         "database_id": { "type": "string" },
         "chains": { "type": "array", "items": { "type": "string" } },
-        "variant": { "$ref": "aminoacid_variant.json#properties/predicted_structure_variant" }
+        "variant": { "$ref": "aminoacid_variant.json#/properties/predicted_structure_variant" }
       },
-      "required": ["database_name", "database_id"]
+      "required": ["type", "database_name", "database_id"]
     },
     "uniprot": {
       "type": "object",
       "properties": {
+        "type": { "type": "string", "const": "UniprotVariant" },
         "database_id": { "type": "string" },
         "variant": { "$ref": "aminoacid_variant.json#/properties/uniprot_variant" }
       },
-      "required": ["database_id"]
+      "required": ["type", "database_id"]
     },
     "alternative_sequence_database": {
       "type": "object",
       "properties": {
+        "type": { "type": "string", "const": "AlternativeSequenceDatabaseVariant" },
         "database_name": { "type": "string" },
         "database_id": { "type": "string" },
-        "variant": { "$ref": "aminoacid_variant.json#properties/alt_sequence_variant" }
+        "variant": { "$ref": "aminoacid_variant.json#/properties/alt_sequence_variant" }
       },
-      "required": ["database_name","database_id"]
+      "required": ["type", "database_name","database_id"]
     },
     "thermodynamic_data": {
         "$ref": "thermodynamic_data.json"
     },
     "object_type": { "const": "protein_variant"}
   },
-  "required": ["thermodynamic_data"],
+  "required": ["context", "type", "thermodynamic_data"],
   "anyOf": [
     { "required": ["pdb"] },
     { "required": ["predicted_structure"] },

@@ -1,14 +1,17 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "https://github.com/biofold/protein-thermodynamic-dataset-model/blob/master/thermodynamic_data.json",
+  "$id": "https://raw.githubusercontent.com/biofold/protein-thermodynamic-dataset-model/master/thermodynamic_data.json",
   "title": "Thermodynamic Data Schema",
   "type": "object",
   "properties": {
-    "Tm": {
+    "context": { "type": "string", "const": "https://schema.org" },
+    "type": { "type": "string", "const": "ThermodynamicData" },
+    "objectType": { "type": "string", "const": "thermodynamic_data"},
+    "meltingTemperature": {
       "type": "number",
       "description": "Melting temperature of the variant in degrees Celsius"
     },
-    "unfolding_percentage": {
+    "unfoldingPercentage": {
       "type": "number",
       "description": "Percentage of protein unfolded"
     },
@@ -16,7 +19,7 @@
       "type": "number",
       "description": "Change in unfolding free energy in water"
     },
-    "fitting_model": {
+    "fittingModel": {
       "type": "string",
       "description": "Model used for fitting the data to determine dG (e.g., two-state model, three-state model)"
     },
@@ -24,58 +27,59 @@
       "$ref": "thermodynamic_experiment.json",
       "description": "Experimental data"
     },
-    "m": {
+    "slopeDenaturationCurve": {
       "type": "number",
       "description": "Slope of the denaturation curve"
     },
-    "Cm": {
+    "midpointDenaturation": {
       "type": "number",
       "description": "Midpoint of denaturation"
     },
-    "dTm": {
+    "changeMeltingTemperature": {
       "type": "number",
       "description": "Change in melting temperature"
     },
-    "T": {
+    "temperature": {
       "type": "number",
       "description": "Temperature"
     },
-    "dG": {
+    "changeFreeEnergy": {
       "type": "number",
       "description": "Change in free energy"
     },
-    "ddG": {
+    "changeInChangeFreeEnergy": {
       "type": "number",
       "description": "Change in change in free energy"
     },
-    "dH": {
+    "changeEnthalpy": {
       "type": "number",
       "description": "Change in enthalpy"
     },
-    "dHvH": {
+    "changeVan'tHoffEnthalpy": {
       "type": "number",
       "description": "Change in van't Hoff enthalpy"
     },
-    "dCp": {
+    "changeHeatCapacity": {
       "type": "number",
       "description": "Change in heat capacity"
     },
-    "other_measures": {
-      "type": "object",
-      "additionalProperties": {
-        "type": ["number", "string"],
-        "description": "Other user-defined thermodynamic measures"
-      },
-      "description": "Additional user-defined thermodynamic measures"
-    },
-    "object_type": { "const": "thermodynamic_data"}
+    "otherMeasures": {
+        "type": "object",
+        "properties": {
+         "type": "string",
+          "description": "Other user-defined thermodynamic measures"
+        },
+        "description": "Additional user-defined thermodynamic measures"
+    }
   },
-  "required": ["experiment"],
+  "required": ["context", "type", "experiment"],
   "anyOf": [
-    { "required": ["Tm"] },
+    { "required": ["meltingTemperature"] },
     { "required": ["dG_H2O"] },
-    { "required": ["ddG_H2O"] },
+    { "required": ["changeInChangeFreeEnergy"] },
+    { "required": ["changeFreeEnergy"] },
     { "required": ["dG"] },
     { "required": ["ddG"] }
   ]
 }
+

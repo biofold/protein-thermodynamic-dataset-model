@@ -1,17 +1,58 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "https://github.com/biofold/protein-thermodynamic-dataset-model/blob/master/dataset_protein_variants.json",
+  "$id": "https://raw.githubusercontent.com/biofold/protein-thermodynamic-dataset-model/master/dataset_protein_variants.json",
   "title": "Protein Variants Dataset Schema",
   "type": "object",
   "properties": {
+    "context": { "type": "string", "const": "https://schema.org" },
+    "type": { "type": "string", "const": "Dataset" },
     "name": { "type": "string" },
     "description": { "type": "string" },
     "version": { "type": "string" },
-    "creation_date": { "type": "string" },
-    "modification_date": { "type": "string" },
-    "additional_info": { "type": "string" },
-    "author": { "type": "string" },
-    "object_type": { "const": "protein_variant_dataset"},
+    "dateCreated": { "type": "string", "format": "date" },
+    "dateModified": { "type": "string", "format": "date" },
+    "additionalType": { "type": "string" },
+    "creator": {
+      "type": "object",
+      "properties": {
+        "type": { "type": "string", "const": "Person" },
+        "name": { "type": "string" }
+      },
+      "required": ["type", "name"]
+    },
+    "object_type": { "const": "protein_variant_dataset" },
+    "identifier": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "type": { "type": "string", "const": "PropertyValue" },
+          "propertyID": { "type": "string" },
+          "value": { "type": "string" }
+        },
+        "required": ["type", "propertyID", "value"]
+      }
+    },
+    "includedInDataCatalog": {
+      "type": "object",
+      "properties": {
+        "type": { "type": "string", "const": "DataCatalog" },
+        "name": { "type": "string" }
+      },
+      "required": ["type", "name"]
+    },
+    "distribution": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "type": { "type": "string", "const": "DataDownload" },
+          "contentUrl": { "type": "string", "format": "uri" },
+          "encodingFormat": { "type": "string" }
+        },
+        "required": ["type", "contentUrl", "encodingFormat"]
+      }
+    },
     "records": {
       "type": "array",
       "items": {
@@ -25,26 +66,24 @@
         "required": ["_id", "record"]
       }
     },
-    "reference": {
+    "citation": {
       "type": "object",
       "properties": {
-        "publication": {
-          "type": "string",
-          "description": "Publication reference"
-        },
-        "pmid": {
-          "type": "string",
-          "pattern": "^[0-9]{8}$",
-          "description": "PubMed Identifier (PMID) of the publication"
-        },
-        "doi": {
-          "type": "string",
-          "description": "Digital Object Identifier (DOI) of the publication"
+        "type": { "type": "string", "const": "CreativeWork" },
+        "name": { "type": "string" },
+        "identifier": {
+          "type": "object",
+          "properties": {
+            "type": { "type": "string", "const": "PropertyValue" },
+            "propertyID": { "type": "string", "enum": ["PMID", "DOI"] },
+            "value": { "type": "string" }
+          },
+          "required": ["type", "propertyID", "value"]
         }
       },
-      "required": ["publication", "doi"]
+      "required": ["type", "name", "identifier"]
     }
   },
-  "required": ["name", "records", "reference"]
+  "required": ["context", "type", "name", "records", "citation"]
 }
 

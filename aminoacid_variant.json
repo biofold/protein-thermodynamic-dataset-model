@@ -1,20 +1,23 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "https://github.com/biofold/protein-thermodynamic-dataset-model/blob/master/aminoacid_variant.json",
+  "$id": "https://raw.githubusercontent.com/biofold/protein-thermodynamic-dataset-model/master/aminoacid_variant.json",
   "title": "Amino Acid Variant Schema",
   "type": "object",
   "properties": {
-    "object_type": { "const": "aminoacid_variant"},
+    "context": { "type": "string", "const": "https://schema.org" },
+    "type": { "type": "string", "const": "AminoAcidVariant" },
+    "objectType": { "type": "string", "const": "aminoacid_variant"},
     "uniprot_variant": {
       "type": "array",
       "items": {
         "type": "object",
         "properties": {
-          "wild_type_residue": { "type": "string" },
+          "type": { "type": "string", "const": "UniprotVariant" },
+          "wildTypeResidue": { "type": "string" },
           "position": { "type": "integer" },
-          "mutant_residue": { "type": "string" }
+          "mutantResidue": { "type": "string" }
         },
-        "required": ["wild_type_residue", "position", "mutant_residue"]
+        "required": ["type", "wildTypeResidue", "position", "mutantResidue"]
       }
     },
     "alt_sequence_variant": {
@@ -22,11 +25,12 @@
       "items": {
         "type": "object",
         "properties": {
-          "wild_type_residue": { "type": "string" },
+          "type": { "type": "string", "const": "AltSequenceVariant" },
+          "wildTypeResidue": { "type": "string" },
           "position": { "type": "integer" },
-          "mutant_residue": { "type": "string" }
+          "mutantResidue": { "type": "string" }
         },
-        "required": ["wild_type_residue", "position", "mutant_residue"]
+        "required": ["type", "wildTypeResidue", "position", "mutantResidue"]
       }
     },
     "pdb_variant": {
@@ -34,13 +38,14 @@
       "items": {
         "type": "object",
         "properties": {
-          "wild_type_residue": { "type": "string" },
+          "type": { "type": "string", "const": "PDBVariant" },
+          "wildTypeResidue": { "type": "string" },
           "position": { "type": "integer" },
           "altloc": { "type": "string" },
-          "mutant_residue": { "type": "string" },
+          "mutantResidue": { "type": "string" },
           "chain": { "type": "string" }
         },
-        "required": ["wild_type_residue", "position", "mutant_residue", "chain"]
+        "required": ["type", "wildTypeResidue", "position", "mutantResidue", "chain"]
       }
     },
     "predicted_structure_variant": {
@@ -48,20 +53,22 @@
       "items": {
         "type": "object",
         "properties": {
-          "wild_type_residue": { "type": "string" },
+          "type": { "type": "string", "const": "PredictedStructureVariant" },
+          "wildTypeResidue": { "type": "string" },
           "position": { "type": "integer" },
-          "mutant_residue": { "type": "string" },
+          "mutantResidue": { "type": "string" },
           "chain": { "type": "string" }
         },
-        "required": ["wild_type_residue", "position", "mutant_residue", "chain"]
+        "required": ["type", "wildTypeResidue", "position", "mutantResidue", "chain"]
       }
     }
   },
   "oneOf": [
-    { "required": ["uniprot_variant"] },
-    { "required": ["alt_sequence_variant"] },
-    { "required": ["pdb_variant"] },
-    { "required": ["predicted_structure_variant"] }
-  ]
+    { "required": ["uniprotVariant"] },
+    { "required": ["altSequenceVariant"] },
+    { "required": ["pdbVariant"] },
+    { "required": ["predictedStructureVariant"] }
+  ],
+  "required": ["context", "type"]
 }
 

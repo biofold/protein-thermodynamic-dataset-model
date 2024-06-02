@@ -1,9 +1,12 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "//github.com/biofold/protein-thermodynamic-dataset-model/blob/master/thermodynamic_experiment.json",
+  "$id": "https://raw.githubusercontent.com/biofold/protein-thermodynamic-dataset-model/master/thermodynamic_experiment.json",
   "title": "Thermodynamic Experiment Schema",
   "type": "object",
   "properties": {
+    "context": { "type": "string", "const": "https://schema.org" },
+    "type": { "type": "string", "const": "ThermodynamicExperiment" },
+    "objectType": { "type": "string", "const": "thermodynamic_experiment"},
     "method": {
       "type": "string",
       "description": "Method used for the experiment (e.g., circular dichroism, fluorescence spectroscopy)"
@@ -60,7 +63,7 @@
     "reference": {
       "type": "object",
       "properties": {
-        "publication_experiment": {
+        "publicationExperiment": {
           "type": "string",
           "description": "Publication reference"
         },
@@ -69,14 +72,13 @@
           "pattern": "^[0-9]{8}$",
           "description": "PubMed Identifier (PMID) of the publication"
         },
-        "pmid": {
+        "doi": {
           "type": "string",
           "description": "Digital Object Identifier (DOI) of the publication"
         }
       },
-      "required": ["publication", "doi"]
+      "required": ["publicationExperiment", "doi"]
     },
-    "object_type": { "const": "thermodynamic_experiment"},
     "metadata": {
       "type": "object",
       "properties": {
@@ -87,6 +89,6 @@
       }
     }
   },
-  "required": ["method", "conditions", "reference"]
+  "required": ["context", "type", "method", "conditions", "reference"]
 }
 
