@@ -41,10 +41,9 @@
           "wildTypeResidue": { "type": "string" },
           "position": { "type": "integer" },
           "altloc": { "type": "string" },
-          "mutantResidue": { "type": "string" },
-          "chain": { "type": "string" }
+          "mutantResidue": { "type": "string" }
         },
-        "required": ["type", "wildTypeResidue", "position", "mutantResidue", "chain"]
+        "required": ["type", "wildTypeResidue", "position", "mutantResidue"]
       }
     },
     "predicted_structure_variant": {
@@ -55,10 +54,9 @@
           "type": { "type": "string", "const": "PredictedStructureVariant" },
           "wildTypeResidue": { "type": "string" },
           "position": { "type": "integer" },
-          "mutantResidue": { "type": "string" },
-          "chain": { "type": "string" }
+          "mutantResidue": { "type": "string" }
         },
-        "required": ["type", "wildTypeResidue", "position", "mutantResidue", "chain"]
+        "required": ["type", "wildTypeResidue", "position", "mutantResidue"]
       }
     }
   },

@@ -11,11 +11,11 @@
       "properties": {
         "type": { "type": "string", "const": "Structure" },
         "database_id": { "type": "string" },
-        "chains": { "type": "array", "items": { "type": "string" } },
+        "chain": { "type": "string" },
         "experiment_type": { "type": "string", "description": "Type of experiment used to determine the structure" },
         "variant": { "$ref": "aminoacid_variant.json#/properties/pdb_variant" }
       },
-      "required": ["type", "database_id", "experiment_type"]
+      "required": ["type", "database_id", "chain", "experiment_type"]
     },
     "predicted_structure": {
       "type": "object",
@@ -23,10 +23,10 @@
         "type": { "type": "string", "const": "PredictedStructure" },
         "database_name": { "type": "string" },
         "database_id": { "type": "string" },
-        "chains": { "type": "array", "items": { "type": "string" } },
+        "chain": { "type": "string"},
         "variant": { "$ref": "aminoacid_variant.json#/properties/predicted_structure_variant" }
       },
-      "required": ["type", "database_name", "database_id"]
+      "required": ["type", "database_name", "database_id", "chain"]
     },
     "uniprot": {
       "type": "object",

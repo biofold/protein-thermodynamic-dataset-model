@@ -143,12 +143,9 @@
                                     "database_id": {
                                         "type": "string"
                                     },
-                                    "chains": {
-                                        "type": "array",
-                                        "items": {
-                                            "type": "string"
-                                        }
-                                    },
+                                    "chain": {
+                                        "type": "string"
+                                    }
                                     "experiment_type": {
                                         "type": "string",
                                         "description": "Type of experiment used to determine the structure"
@@ -173,9 +170,6 @@
                                                 },
                                                 "mutantResidue": {
                                                     "type": "string"
-                                                },
-                                                "chain": {
-                                                    "type": "string"
                                                 }
                                             },
                                             "required": [
@@ -183,7 +177,6 @@
                                                 "wildTypeResidue",
                                                 "position",
                                                 "mutantResidue",
-                                                "chain"
                                             ]
                                         }
                                     }
@@ -191,6 +184,7 @@
                                 "required": [
                                     "type",
                                     "database_id",
+                                    "chain",
                                     "experiment_type"
                                 ]
                             },
@@ -207,12 +201,9 @@
                                     "database_id": {
                                         "type": "string"
                                     },
-                                    "chains": {
-                                        "type": "array",
-                                        "items": {
-                                            "type": "string"
-                                        }
-                                    },
+                                    "chain": {
+                                        "type": "string"
+                                    }
                                     "variant": {
                                         "type": "array",
                                         "items": {
@@ -230,9 +221,6 @@
                                                 },
                                                 "mutantResidue": {
                                                     "type": "string"
-                                                },
-                                                "chain": {
-                                                    "type": "string"
                                                 }
                                             },
                                             "required": [
@@ -240,7 +228,6 @@
                                                 "wildTypeResidue",
                                                 "position",
                                                 "mutantResidue",
-                                                "chain"
                                             ]
                                         }
                                     }
@@ -248,7 +235,8 @@
                                 "required": [
                                     "type",
                                     "database_name",
-                                    "database_id"
+                                    "database_id",
+                                    "chain"
                                 ]
                             },
                             "uniprot": {
