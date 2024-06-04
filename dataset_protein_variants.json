@@ -57,9 +57,12 @@
       "items": {
         "type": "object",
         "properties": {
+          "_id": { "type": "string" },
+          "cluster_id": { "type": "string" },
+          "cluster_info": { "type": "string" },
           "record": { "$ref": "protein_variant.json" }
         },
-        "required": ["record"]
+        "required": ["id","record"]
       }
     },
     "citation": {
