@@ -9,7 +9,7 @@
     "pdb_variant": {  
        "type": "object",
        "properties": {
-            "type": { "type": "string", "const": "Structure" },
+            "type": { "type": "string", "const": "PDBStructure" },
             "pdb_id": { "type": "string" },
             "chain": { "type": "string" },
             "experiment_type": { "type": "string", "description": "Type of experiment used to determine the structure" },
@@ -24,7 +24,7 @@
            }
          }
        },
-       "required": ["type", "database_id", "chain"]
+       "required": ["type", "pdb_id", "chain"]
     },
     "predicted_structure_variant": {
     "type": "object",
@@ -48,7 +48,7 @@
     "uniprot_variant": {
     "type": "object",
     "properties": {
-            "type": { "type": "string", "const": "Uniprot" },
+            "type": { "type": "string", "const": "UniProtSequence" },
             "uniprot_id": { "type": "string" },
             "variations": {
                "type": "array",
@@ -60,7 +60,7 @@
            }
          }
        },
-       "required": ["type", "database_id"]
+       "required": ["type", "uniprot_id"]
     },
     "alternative_sequence_variant": {
     "type": "object",
