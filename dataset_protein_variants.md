@@ -36,7 +36,10 @@ This program is distributed in the hope that it will be useful, but WITHOUT ANY 
 - **Title:** Protein Variant Schema
 - **Description:** Defines the structure for a protein variant.
 - **Properties:**
-  - `pdb_variant`, `predicted_structure_variant`, `uniprot_variant`, `alt_sequence_variant`: Different types of variants.
+  - `pdb`: Protein Data Bank information.
+  - `predicted_structure`: Predicted structure information.
+  - `uniprot`: UniProt information.
+  - `alternative_sequence_database`: Alternative sequence database information.
   - `thermodynamic_data`: Thermodynamic data related to the protein variant.
 - **Required Fields:** Depends on the variant type.
 
@@ -45,7 +48,10 @@ This program is distributed in the hope that it will be useful, but WITHOUT ANY 
 - **Title:** Amino Acid Variant Schema
 - **Description:** Defines the structure for an amino acid variant.
 - **Properties:**
-  - `uniprot_variant`, `alt_sequence_variant`, `pdb_variant`, `predicted_structure_variant`: Different types of variants.
+  - `uniprot_variant`: UniProt variant information.
+  - `alternative_sequence_database_variant`: Alternative sequence database variant information.
+  - `pdb_variant`: Protein Data Bank variant information.
+  - `predicted_structure_variant`: Predicted structure variant information.
 - **Required Fields:** Depends on the variant type.
 
 ## 4. Thermodynamic Data
