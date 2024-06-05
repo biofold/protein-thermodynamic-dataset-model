@@ -13,9 +13,10 @@
         "database_id": { "type": "string" },
         "chain": { "type": "string" },
         "experiment_type": { "type": "string", "description": "Type of experiment used to determine the structure" },
+        "resolution": {"type": "number","description": "Resolution in Angstrom"},
         "variant": { "$ref": "aminoacid_variant.json#/properties/pdb_variant" }
       },
-      "required": ["type", "database_id", "chain", "experiment_type"]
+      "required": ["type", "database_id", "chain"]
     },
     "predicted_structure": {
       "type": "object",

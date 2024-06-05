@@ -1,12 +1,12 @@
 # JSON Schemas Documentation
 
-## INTRODUCTION
-This repository includes of JSON schemas for a data models representing a dataset of protein thermodynamic  data.
+## Introduction
+This repository includes JSON schemas for data models representing a dataset of protein thermodynamic data.
 
-## LICENSE
+## License
 Copyright (C) 2024 Emidio Capriotti and Maria Paola Turina
 
-This program and all program in this package are free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; either version 2 of the License, or (at your option) any later version.
+This program and all programs in this package are free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; either version 2 of the License, or (at your option) any later version.
 
 This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
 
@@ -23,11 +23,11 @@ This program is distributed in the hope that it will be useful, but WITHOUT ANY 
   - `additional_info`: Additional information about the dataset.
   - `author`: Author of the dataset.
   - `records`: Array of protein variants.
-     - `record`: Protein variants.
-        - `_id`: Identifier.
-        - `cluster_id`: Cluster identifier.
-        - `cluster_info`: Information about the clusterin proceduere.
-        - `protein_variant`: Protein variant object.
+    - `record`: Protein variant object.
+      - `_id`: Identifier.
+      - `cluster_id`: Cluster identifier.
+      - `cluster_info`: Information about the clustering procedure.
+      - `protein_variant`: Protein variant object.
   - `reference`: Information about the publication reference.
 - **Required Fields:** `name`, `records`, `reference`
 
@@ -43,7 +43,7 @@ This program is distributed in the hope that it will be useful, but WITHOUT ANY 
 ## 3. Amino Acid Variant
 
 - **Title:** Amino Acid Variant Schema
-- **Description:** Defines the structure for a protein variant.
+- **Description:** Defines the structure for an amino acid variant.
 - **Properties:**
   - `uniprot_variant`, `alt_sequence_variant`, `pdb_variant`, `predicted_structure_variant`: Different types of variants.
 - **Required Fields:** Depends on the variant type.
@@ -67,5 +67,5 @@ This program is distributed in the hope that it will be useful, but WITHOUT ANY 
   - `metadata`: Additional metadata about the experiment.
 - **Required Fields:** `method`, `conditions`, `reference`
 
-Each schema provides a structured format for organizing and validating specific types of data related to protein variants, experimental data, and thermodynamic data.
+These schemas provide a standardized format for organizing and validating data related to protein variants, experimental data, and thermodynamic properties. Each schema is tailored to capture specific aspects of protein data analysis, ensuring consistency and compatibility across datasets.
 

@@ -145,10 +145,14 @@
                                     },
                                     "chain": {
                                         "type": "string"
-                                    }
+                                    },
                                     "experiment_type": {
                                         "type": "string",
                                         "description": "Type of experiment used to determine the structure"
+                                    },
+                                    "resolution": {
+                                        "type": "number",
+                                        "description": "Resolution in Angstrom"
                                     },
                                     "variant": {
                                         "type": "array",
@@ -176,7 +180,7 @@
                                                 "type",
                                                 "wildTypeResidue",
                                                 "position",
-                                                "mutantResidue",
+                                                "mutantResidue"
                                             ]
                                         }
                                     }
@@ -184,8 +188,7 @@
                                 "required": [
                                     "type",
                                     "database_id",
-                                    "chain",
-                                    "experiment_type"
+                                    "chain"
                                 ]
                             },
                             "predicted_structure": {
@@ -203,7 +206,7 @@
                                     },
                                     "chain": {
                                         "type": "string"
-                                    }
+                                    },
                                     "variant": {
                                         "type": "array",
                                         "items": {
@@ -227,7 +230,7 @@
                                                 "type",
                                                 "wildTypeResidue",
                                                 "position",
-                                                "mutantResidue",
+                                                "mutantResidue"
                                             ]
                                         }
                                     }
