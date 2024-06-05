@@ -68,7 +68,9 @@ This program is distributed in the hope that it will be useful, but WITHOUT ANY 
 - **Description:** Defines the structure for experimental data.
 - **Properties:**
   - `method`: Method used for the experiment.
-  - `conditions`: Experimental conditions such as temperature, pH, etc.
+  - `conditions`: Experimental conditions such as temperature (T) and pH.
+    - `T`: Temperature at which the experiment was performed.
+    - `pH`: pH at which the experiment was performed.
   - `reference`: Information about the publication reference.
   - `metadata`: Additional metadata about the experiment.
 - **Required Fields:** `method`, `conditions`, `reference`
