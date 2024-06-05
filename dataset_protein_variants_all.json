@@ -116,8 +116,8 @@
             "items": {
                 "type": "object",
                 "properties": {
-					"_id": { "type": "string" },
-					"cluster_id": {"type": "string"},
+                    "_id": { "type": "string" },
+                    "cluster_id": {"type": "string"},
                     "cluster_info": {"type": "string"},
                     "record": {
                         "$schema": "http://json-schema.org/draft-07/schema#",
@@ -133,14 +133,16 @@
                                 "type": "string",
                                 "const": "ProteinVariant"
                             },
-                            "pdb": {
+                            "pdb_variant": {
+                            "type": "object",
+                            "pdb_variant": {
                                 "type": "object",
                                 "properties": {
                                     "type": {
                                         "type": "string",
                                         "const": "Structure"
                                     },
-                                    "database_id": {
+                                    "pdb_id": {
                                         "type": "string"
                                     },
                                     "chain": {
@@ -154,7 +156,7 @@
                                         "type": "number",
                                         "description": "Resolution in Angstrom"
                                     },
-                                    "variant": {
+                                    "variations": {
                                         "type": "array",
                                         "items": {
                                             "type": "object",
@@ -191,7 +193,7 @@
                                     "chain"
                                 ]
                             },
-                            "predicted_structure": {
+                            "predicted_structure_variant": {
                                 "type": "object",
                                 "properties": {
                                     "type": {
@@ -207,7 +209,7 @@
                                     "chain": {
                                         "type": "string"
                                     },
-                                    "variant": {
+                                    "variations": {
                                         "type": "array",
                                         "items": {
                                             "type": "object",
@@ -242,17 +244,17 @@
                                     "chain"
                                 ]
                             },
-                            "uniprot": {
+                            "uniprot_variant": {
                                 "type": "object",
                                 "properties": {
                                     "type": {
                                         "type": "string",
                                         "const": "Uniprot"
                                     },
-                                    "database_id": {
+                                    "uniprot_id": {
                                         "type": "string"
                                     },
-                                    "variant": {
+                                    "variations": {
                                         "type": "array",
                                         "items": {
                                             "type": "object",
@@ -285,7 +287,7 @@
                                     "database_id"
                                 ]
                             },
-                            "alternative_sequence_database": {
+                            "alternative_sequence_variant": {
                                 "type": "object",
                                 "properties": {
                                     "type": {
@@ -298,7 +300,7 @@
                                     "database_id": {
                                         "type": "string"
                                     },
-                                    "variant": {
+                                    "variations": {
                                         "type": "array",
                                         "items": {
                                             "type": "object",
@@ -331,7 +333,9 @@
                                     "database_name",
                                     "database_id"
                                 ]
-                            },
+                            }
+						    }
+                            }, 
                             "data": {
                                 "$schema": "http://json-schema.org/draft-07/schema#",
                                 "$id": "https://raw.githubusercontent.com/biofold/protein-thermodynamic-dataset-model/master/thermodynamic_data.json",
@@ -564,12 +568,12 @@
                         "anyOf": [
                             {
                                 "required": [
-                                    "pdb"
+                                    "pdb_variant"
                                 ]
                             },
                             {
                                 "required": [
-                                    "predicted_structure"
+                                    "predicted_structure_variant"
                                 ]
                             },
                             {
@@ -579,7 +583,7 @@
                             },
                             {
                                 "required": [
-                                    "alternative_sequence_database"
+                                    "alternative_sequence_variant"
                                 ]
                             }
                         ]

@@ -6,47 +6,79 @@
   "properties": {
     "context": { "type": "string", "const": "https://schema.org" },
     "type": { "type": "string", "const": "ProteinVariant" },
-    "pdb": {
-      "type": "object",
-      "properties": {
-        "type": { "type": "string", "const": "Structure" },
-        "database_id": { "type": "string" },
-        "chain": { "type": "string" },
-        "experiment_type": { "type": "string", "description": "Type of experiment used to determine the structure" },
-        "resolution": {"type": "number","description": "Resolution in Angstrom"},
-        "variant": { "$ref": "aminoacid_variant.json#/properties/pdb_variant" }
-      },
-      "required": ["type", "database_id", "chain"]
+    "pdb_variant": {  
+       "type": "object",
+       "properties": {
+            "type": { "type": "string", "const": "Structure" },
+            "pdb_id": { "type": "string" },
+            "chain": { "type": "string" },
+            "experiment_type": { "type": "string", "description": "Type of experiment used to determine the structure" },
+            "resolution": {"type": "number","description": "Resolution in Angstrom"},
+            "variations": {
+               "type": "array",
+               "items": {
+               "type": "object",
+               "properties": {
+                  "aminoacid_variant": { "$ref": "aminoacid_variant.json#/properties/pdb_variant" }
+             }
+           }
+         }
+       },
+       "required": ["type", "database_id", "chain"]
     },
-    "predicted_structure": {
-      "type": "object",
-      "properties": {
-        "type": { "type": "string", "const": "PredictedStructure" },
-        "database_name": { "type": "string" },
-        "database_id": { "type": "string" },
-        "chain": { "type": "string"},
-        "variant": { "$ref": "aminoacid_variant.json#/properties/predicted_structure_variant" }
-      },
-      "required": ["type", "database_name", "database_id", "chain"]
+    "predicted_structure_variant": {
+    "type": "object",
+       "properties": {
+            "type": { "type": "string", "const": "PredictedStructure" },
+            "database_name": { "type": "string" },
+            "database_id": { "type": "string" },
+            "chain": { "type": "string"},
+            "variations": {
+               "type": "array",
+               "items": {
+               "type": "object",
+               "properties": {
+                  "aminoacid_variant": { "$ref": "aminoacid_variant.json#/properties/predicted_structure_variant" }
+             }
+           }
+         }
+       },
+       "required": ["type", "database_name", "database_id", "chain"]
     },
-    "uniprot": {
-      "type": "object",
-      "properties": {
-        "type": { "type": "string", "const": "Uniprot" },
-        "database_id": { "type": "string" },
-        "variant": { "$ref": "aminoacid_variant.json#/properties/uniprot_variant" }
-      },
-      "required": ["type", "database_id"]
+    "uniprot_variant": {
+    "type": "object",
+    "properties": {
+            "type": { "type": "string", "const": "Uniprot" },
+            "uniprot_id": { "type": "string" },
+            "variations": {
+               "type": "array",
+               "items": {
+               "type": "object",
+               "properties": {
+                  "aminoacid_variant": { "$ref": "aminoacid_variant.json#/properties/uniprot_variant" }
+             }
+           }
+         }
+       },
+       "required": ["type", "database_id"]
     },
-    "alternative_sequence_database": {
-      "type": "object",
-      "properties": {
-        "type": { "type": "string", "const": "AlternativeSequence" },
-        "database_name": { "type": "string" },
-        "database_id": { "type": "string" },
-        "variant": { "$ref": "aminoacid_variant.json#/properties/alt_sequence_variant" }
-      },
-      "required": ["type", "database_name","database_id"]
+    "alternative_sequence_variant": {
+    "type": "object",
+    "properties": {
+           "type": { "type": "string", "const": "AlternativeSequence" },
+           "database_name": { "type": "string" },
+           "database_id": { "type": "string" },
+           "variations": {
+               "type": "array",
+               "items": {
+               "type": "object",
+               "properties": {
+                  "aminoacid_variant": { "$ref": "aminoacid_variant.json#/properties/alt_sequence_variant" }
+             }
+           }
+         }
+       },
+       "required": ["type", "database_name","database_id"]
     },
     "data": {
         "$ref": "thermodynamic_data.json"
@@ -54,10 +86,10 @@
   },
   "required": ["context", "type", "data"],
   "anyOf": [
-    { "required": ["pdb"] },
-    { "required": ["predicted_structure"] },
+    { "required": ["pdb_variant"] },
+    { "required": ["predicted_structure_variant"] },
     { "required": ["uniprot"] },
-    { "required": ["alternative_sequence_database"] }
+    { "required": ["alternative_sequence_variant"] }
   ]
 }
 
