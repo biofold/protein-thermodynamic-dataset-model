@@ -37,9 +37,13 @@ This program is distributed in the hope that it will be useful, but WITHOUT ANY 
 - **Description:** Defines the structure for a protein variant.
 - **Properties:**
   - `pdb`: Protein Data Bank information.
+    - `pdb_variant`: Protein Data Bank variant information. 
   - `predicted_structure`: Predicted structure information.
+    - `predicted_structure_variant`: Predicted structure variant information.
   - `uniprot`: UniProt information.
+    - `uniprot_variant`: UniProt variant information.
   - `alternative_sequence_database`: Alternative sequence database information.
+    - `alternative_sequence_database_variant`: Alternative sequence database variant information.
   - `thermodynamic_data`: Thermodynamic data related to the protein variant.
 - **Required Fields:** Depends on the variant type.
 
